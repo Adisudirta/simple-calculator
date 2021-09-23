@@ -97,6 +97,7 @@
 #dot:hover {
   background-color: #dbd2d2;
   color: #424242;
+  cursor: pointer;
 }
 
 .btn:active,
@@ -122,6 +123,7 @@
 #result:hover {
   background-color: #dbd2d2;
   color: #ff6f6f;
+  cursor: pointer;
 }
 
 #result:active {
@@ -143,6 +145,7 @@
 #plus:hover {
   background-color: #fbefef;
   color: #ff6f6f;
+  cursor: pointer;
 }
 
 #divide:active,
