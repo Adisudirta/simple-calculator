@@ -2,12 +2,7 @@ let num1 = "";
 let num2 = "";
 let operation = "";
 let result = 0;
-let history = []
-
-// var names = [];
-// names[0] = prompt("New member name?");
-// localStorage.setItem("names", JSON.stringify(names));
-// var storedNames = JSON.parse(localStorage.getItem("names"))
+let history = [];
 
 const inputDisplay = document.getElementById("inputDisplay");
 
@@ -72,27 +67,45 @@ function inputOperation(action) {
   }
 }
 
-function addHistory(text){
-    if(localStorage.getItem('history') == undefined){
-        history.push(text)
-        localStorage.setItem('history', JSON.stringify(history))
-    } else {
-        history = JSON.parse(localStorage.getItem('history'))
-        history.push(text);
-        localStorage.setItem('history', JSON.stringify(history));
-    }
+function addHistory(result) {
+  if (localStorage.getItem("history") !== null) {
+    history = JSON.parse(localStorage.getItem("history"));
+  }
+  if (history.length >= 9) {
+    history.shift();
+  }
+  history.push(result);
+  localStorage.setItem("history", JSON.stringify(history));
 }
 
-const historyDisplay = document.getElementById("historyDisplay");
-function readHistory(){
-    if(localStorage.getItem('history') != undefined){
-        history = JSON.parse(localStorage.getItem('history'));
-        historyDisplay.innerHTML = ``;
-        history.forEach(item => {
-            historyDisplay.innerHTML += `<p style="font-family: gs-medium;">${item}</p>`
-        });
-    }
+function readHistory() {
+  const historyDisplay = document.getElementById("historyDisplay");
+  if (localStorage.getItem("history") !== null) {
+    history = JSON.parse(localStorage.getItem("history"));
+    historyDisplay.innerHTML = ``;
+    history.forEach((item) => {
+      historyDisplay.innerHTML += `
+      <p
+        style="
+          font-family: gs-medium;
+          margin: 20px 0 0;
+        "
+      >${item.operation}
+      </p>
+      <p style="
+          font-family: gs-medium;
+          font-size: 20px;
+          margin: 5px 0 23px;
+          color: var(--operator-btn-text-color);
+        "
+      >${item.operationResult}
+      </p>
+      `;
+    });
+  }
 }
+
+readHistory();
 
 function calculate() {
   if (num1 !== "" && num2 !== "" && operation !== "") {
@@ -105,13 +118,28 @@ function calculate() {
     } else if (operation === "/") {
       result = Number(num1) / Number(num2);
     }
-    text = num1+" "+operation+" "+num2+" = "+String(result);
-    addHistory(text);
+
+    addHistory({
+      operation: num1 + " " + operation + " " + num2,
+      operationResult: " = " + String(result),
+    });
+
     num1 = String(result);
     num2 = "";
     operation = "";
+
     readHistory();
     displayOutput();
   }
 }
-readHistory();
+
+function changeTheme(theme) {
+  let icon = document.querySelector("#imageTheme");
+  theme === "dark"
+    ? (icon.innerHTML = `<img onclick="changeTheme('light')" src="./assets/moon.svg" />`)
+    : (icon.innerHTML = `<img onclick="changeTheme('dark')" src="./assets/sun.svg" />`);
+
+  document
+    .querySelector("link[title=color]")
+    .setAttribute("href", `./style/color/${theme}-theme-color.css`);
+}

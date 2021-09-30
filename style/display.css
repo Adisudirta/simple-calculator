@@ -1,0 +1,40 @@
+.title-box {
+  background-color: var(--title-box-background);
+  width: 425px;
+  text-align: left;
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.title {
+  font-family: gs-bold;
+  font-size: 20px;
+  margin: 5px 20px;
+  color: var(--title-box-text);
+}
+
+.title-box img {
+  width: 15px;
+  margin: 5px 20px;
+  cursor: pointer;
+}
+
+span {
+  font-family: gs-medium;
+  font-size: 10px;
+  color: var(--title-box-text);
+}
+
+#inputDisplay {
+  width: 100%;
+  height: 150px;
+  border: none;
+  border-top: none;
+  font-size: 40px;
+  font-family: gs-medium;
+  background-color: var(--input-background-color);
+  color: var(--input-display-text);
+  border-bottom: 3px solid var(--input-display-border);
+  padding: 0 25px 0;
+}
