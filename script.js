@@ -2,6 +2,12 @@ let num1 = "";
 let num2 = "";
 let operation = "";
 let result = 0;
+let history = []
+
+// var names = [];
+// names[0] = prompt("New member name?");
+// localStorage.setItem("names", JSON.stringify(names));
+// var storedNames = JSON.parse(localStorage.getItem("names"))
 
 const inputDisplay = document.getElementById("inputDisplay");
 
@@ -66,6 +72,28 @@ function inputOperation(action) {
   }
 }
 
+function addHistory(text){
+    if(localStorage.getItem('history') == undefined){
+        history.push(text)
+        localStorage.setItem('history', JSON.stringify(history))
+    } else {
+        history = JSON.parse(localStorage.getItem('history'))
+        history.push(text);
+        localStorage.setItem('history', JSON.stringify(history));
+    }
+}
+
+const historyDisplay = document.getElementById("historyDisplay");
+function readHistory(){
+    if(localStorage.getItem('history') != undefined){
+        history = JSON.parse(localStorage.getItem('history'));
+        historyDisplay.innerHTML = ``;
+        history.forEach(item => {
+            historyDisplay.innerHTML += `<p style="font-family: gs-medium;">${item}</p>`
+        });
+    }
+}
+
 function calculate() {
   if (num1 !== "" && num2 !== "" && operation !== "") {
     if (operation === "+") {
@@ -77,9 +105,13 @@ function calculate() {
     } else if (operation === "/") {
       result = Number(num1) / Number(num2);
     }
+    text = num1+" "+operation+" "+num2+" = "+String(result);
+    addHistory(text);
     num1 = String(result);
     num2 = "";
     operation = "";
+    readHistory();
     displayOutput();
   }
 }
+readHistory();
