@@ -5,7 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Primakara Calculator</title>
-    <link rel="stylesheet" href="./style/dark-theme.css" />
+    <link
+      rel="stylesheet"
+      title="color"
+      href="./style/color/light-theme-color.css"
+    />
+    <link rel="stylesheet" href="./style/style.css" />
   </head>
 
   <body>
@@ -13,6 +18,12 @@
       <div class="container">
         <div class="title-box">
           <p class="title">Primdev Calculator <span>Ver.1.1</span></p>
+          <span
+            id="imageTheme"
+            style="display: flex; justify-content: center; align-items: center"
+          >
+            <img onclick="changeTheme('dark')" src="./assets/sun.svg" />
+          </span>
         </div>
         <input type="text" id="inputDisplay" readonly />
       </div>

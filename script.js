@@ -83,3 +83,14 @@ function calculate() {
     displayOutput();
   }
 }
+
+function changeTheme(theme) {
+  let icon = document.querySelector("#imageTheme");
+  theme === "dark"
+    ? (icon.innerHTML = `<img onclick="changeTheme('light')" src="./assets/moon.svg" />`)
+    : (icon.innerHTML = `<img onclick="changeTheme('dark')" src="./assets/sun.svg" />`);
+
+  document
+    .querySelector("link[title=color]")
+    .setAttribute("href", `./style/color/${theme}-theme-color.css`);
+}

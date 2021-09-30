@@ -5,56 +5,56 @@
   border: none;
   font-size: 25px;
   font-family: gs-bold;
-  background-color: var(--grey-1);
-  color: var(--dark-text-1);
+  background-color: var(--btn-color);
+  color: var(--btn-text-color);
   transition: all 0.1s ease-in-out;
   outline: none !important;
 }
 
 .zero {
   flex-basis: 75%;
-  background-color: var(--grey-2);
+  background-color: var(--zero-btn-color);
 }
 
 .operator {
-  background-color: var(--grey-3);
-  color: var(--dark-salmon);
+  background-color: var(--operator-btn-color);
+  color: var(--operator-btn-text-color);
 }
 
 .btn:hover {
-  background-color: #dbd2d2;
-  color: #424242;
+  background-color: var(--grey-5);
+  color: var(--dark-1);
   cursor: pointer;
 }
 
 .btn:active {
-  background-color: #979090;
-  color: #353535;
+  background-color: var(--grey-6);
+  color: var(--dark-2);
 }
 
 .operator:hover {
-  background-color: #fbefef;
-  color: #ff6f6f;
+  background-color: var(--grey-5);
+  color: var(--light-salmon-1);
   cursor: pointer;
 }
 
 .operator:active {
-  background-color: #a39b9b;
-  color: #ff5151;
+  background-color: var(--grey-6);
+  color: var(--light-salmon-2);
 }
 
 #result {
-  background-color: var(--grey-4);
-  color: var(--dark-text-2);
+  background-color: var(--result-btn-color);
+  color: var(--result-btn-text-color);
 }
 
 #result:hover {
-  background-color: #dbd2d2;
-  color: #ff6f6f;
+  background-color: var(--grey-5);
+  color: var(--light-salmon-1);
   cursor: pointer;
 }
 
 #result:active {
-  background-color: #a39b9b;
-  color: #ff5151;
+  background-color: var(--grey-7);
+  color: var(--light-salmon-2);
 }

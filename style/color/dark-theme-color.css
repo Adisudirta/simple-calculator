@@ -3,7 +3,43 @@
   --grey-2: #c4c4c4;
   --grey-3: #b4b4b4;
   --grey-4: #a0a0a0;
+  --grey-5: #dbd2d2;
+  --grey-6: #979090;
+  --grey-7: #a39b9b;
+  --grey-8: #dbd2d2;
+
+  --dark-1: #424242;
+  --dark-2: #353535;
+  --dark-3: #383737;
+  --dark-4: #575757;
+  --dark-5: #4d4d4d;
+
+  --dark-grey-1: #4a4a4a;
+  --dark-text-white-1: #fbefef;
+  --dark-text-white-2: #fefefe;
+
   --dark-salmon: #a73b3b;
+  --light-salmon-1: #ff6f6f;
+  --light-salmon-2: #ff5151;
+  --light-salmon-3: #ff7979;
   --dark-text-1: #646464;
   --dark-text-2: #4e4e4e;
+
+  --title-box-background: var(--dark-grey-1);
+  --title-box-text: var(--dark-text-white-1);
+
+  --input-background-color: var(--dark-1);
+  --input-display-text: var(--dark-text-white-2);
+  --input-display-border: lightgray;
+
+  --btn-color: var(--dark-1);
+  --btn-text-color: var(--grey-5);
+
+  --zero-btn-color: var(--dark-3);
+
+  --operator-btn-color: var(--dark-4);
+  --operator-btn-text-color: var(--light-salmon-3);
+
+  --result-btn-color: var(--dark-5);
+  --result-btn-text-color: var(--grey-8);
 }

@@ -1,21 +1,29 @@
 .title-box {
-  background-color: var(--grey-1);
+  background-color: var(--title-box-background);
   width: 425px;
   text-align: left;
   padding: 10px 0;
+  display: flex;
+  justify-content: space-between;
 }
 
-.title {
+.title-box .title {
   font-family: gs-bold;
   font-size: 20px;
   margin: 5px 20px;
-  color: var(--dark-text-1);
+  color: var(--title-box-text);
+}
+
+.title-box img {
+  width: 15px;
+  margin: 5px 20px;
+  cursor: pointer;
 }
 
 span {
   font-family: gs-medium;
   font-size: 10px;
-  color: var(--dark-text-1);
+  color: var(--title-box-text);
 }
 
 #inputDisplay {
@@ -25,8 +33,8 @@ span {
   border-top: none;
   font-size: 40px;
   font-family: gs-medium;
-  background-color: var(--grey-2);
-  color: var(--dark-text-2);
-  border-bottom: 3px solid var(--dark-text-1);
+  background-color: var(--input-background-color);
+  color: var(--input-display-text);
+  border-bottom: 3px solid var(--input-display-border);
   padding: 0 25px 0;
 }
