@@ -1,0 +1,24 @@
+.container {
+  max-width: 425px !important;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.col-12 {
+  max-width: 100%;
+}
+
+.col-4 {
+  max-width: 25%;
+}
+
+@font-face {
+  font-family: "gs-medium";
+  src: url("../font/GoogleSans-Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "gs-bold";
+  src: url("../font/GoogleSans-Bold.ttf") format("truetype");
+}

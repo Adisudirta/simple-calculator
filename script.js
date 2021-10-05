@@ -2,6 +2,7 @@ let num1 = ""
 let num2 = ""
 let operation = ""
 let result = 0
+let history = []
 
 const inputDisplay = document.getElementById("inputDisplay")
 
@@ -11,19 +12,21 @@ function displayOutput(){
 
 function inputNumber(input){
     if(operation === ""){
-        if(num1 === ""){
-            num1 = String(input)
+        if(input === "."){
+            if(num1 !== "" && !num1.includes(".")){
+                num1 += String(input)
+            } 
         } else {
-            // num1 += String(input)
-            num1 = num1 + String(input)
+            num1 === "" ? (num1 = String(input)) : (num1 += String(input))
         }
         displayOutput()
     } else {
-        if(num2 === ""){
-            num2 = String(input)
+        if(input === "."){
+            if(num2 !== "" && !num2.includes(".")){
+                num2 += String(input)
+            } 
         } else {
-            // num2 += String(input)
-            num2 = num2 + String(input)
+            num2 === "" ? (num2 = String(input)) : (num2 += String(input))
         }
         displayOutput()
     }
@@ -53,9 +56,15 @@ function calculate(){
         } else if (operation === "/"){
             result = Number(num1) / Number(num2)
         }
+
+        let text = num1+" "+operation+" "+num2+" = "+String(result)
+        addHistory(text)
+
         num1 = String(result)
         num2 = ""
         operation = ""
+
+        readHistory()
         displayOutput()
     }
 }
@@ -69,9 +78,32 @@ function clearDisplay(){
 }
 
 function deleteInput(){
-    if(num1 !== ""){
+    if(num2 !== ""){
+        num2 = num2.substring(0, num2.length - 1)
+    } else if(operation !== ""){
+        operation = ""
+    } else if(num1 !== ""){
         num1 = num1.substring(0, num1.length - 1)
     }
     displayOutput()
 }
 
+function addHistory(result){
+    if(localStorage.getItem('history') !== null){
+        history = JSON.parse(localStorage.getItem('history'))
+    } 
+    history.push(result)
+    localStorage.setItem('history', JSON.stringify(history))
+}
+
+function readHistory(){
+    const historyDisplay = document.getElementById('historyDisplay')
+    if(localStorage.getItem('history') !== null){
+        history = JSON.parse(localStorage.getItem('history'))
+        historyDisplay.innerHTML = ``
+        history.forEach(item => {
+            historyDisplay.innerHTML += `<p>${item}</p>`
+        });
+    }
+}
+readHistory()
